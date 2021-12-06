@@ -1,4 +1,7 @@
-sync/.DS_Store
 .DS_Store
-node_modules/
-web/node_modules/
+sync/.DS_Store
+node_modules
+dist
+dist-ssr
+*.local
+
