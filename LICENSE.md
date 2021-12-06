@@ -1,3 +1,5 @@
+# Licence
+
 Copyright ©2017 by MAG Design, Marc-André Gasser, Bern, Switzerland. All rights reserved.
 
 You may use this software as long as it is in a non-commercial and open-source manner.
