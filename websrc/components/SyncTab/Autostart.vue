@@ -322,7 +322,8 @@
       <div class="col" style="background: #972c2b">
         <div>
           <h2 style="margin-top: 15px; height: 32px">
-            <img src="@/assets/img/Display_icon_01.svg" />&nbsp;OTHERS
+            <img src="@/assets/img/Display_icon_01.svg" />
+            &nbsp;OTHERS
           </h2>
           <div class="col colforbutton">
             <a

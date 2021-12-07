@@ -7,53 +7,36 @@
         /></a>
       </div>
       <div class="col d-flex justify-content-end">
-        <div class="row">
+        <div class="row version-box">
           <div class="col">
-            <p
-              class="text-center"
-              id="version_text"
-              style="
-                font-weight: normal;
-                padding-top: 12px;
-                color: rgb(0, 0, 0);
-              "
+            <div class="version-text">CP 3.0.8a</div>
+          </div>
+          <div class="col">
+            <div class="status">{{ isOnline ? 'Online' : 'Offline' }}</div>
+          </div>
+          <div class="col">
+            <a
+              href="https://github.com/magdesign/PocketVJ-CP-v3/issues"
+              target="_blank"
+              ><img
+                class="help_logo"
+                src="@/assets/img/help_issue.svg"
+                data-toggle="tooltip"
+                title="report a bug"
+            /></a>
+          </div>
+          <div class="col">
+            <a
+              href="/docs/html/index.html"
+              style="text-align: right"
+              target="_blank"
             >
-              CP 3.0.8a
-              <a
-                href="https://github.com/magdesign/PocketVJ-CP-v3/issues"
-                style="text-align: right"
-                target="_blank"
-                ><img
-                  class="help_logo"
-                  src="@/assets/img/help_issue.svg"
-                  style="
-                    text-align: right;
-                    padding: 8px;
-                    max-width: 60%;
-                    width: 40px;
-                  "
-                  data-toggle="tooltip"
-                  title="report a bug"
-              /></a>
-              <a
-                href="/docs/html/index.html"
-                style="text-align: right"
-                target="_blank"
-              >
-                <img
-                  class="help_logo"
-                  src="@/assets/img/help.svg"
-                  style="
-                    text-align: right;
-                    padding: 8px;
-                    max-width: 60%;
-                    width: 40px;
-                  "
-                  data-toggle="tooltip"
-                  title="read the f**king docs !!"
-              /></a>
-              <br /><br />
-            </p>
+              <img
+                class="help_logo"
+                src="@/assets/img/help.svg"
+                data-toggle="tooltip"
+                title="read the f**king docs !!"
+            /></a>
           </div>
         </div>
       </div>
@@ -61,6 +44,28 @@
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { inject, ref } from 'vue';
+import { Socket } from 'socket.io-client';
 
-<style></style>
+const socket = inject('socket') as Socket;
+const isOnline = ref<boolean>(false);
+socket.on('connect', () => {
+  isOnline.value = true;
+  console.log('#connection: ', socket.id);
+});
+socket.on('disconnect', () => {
+  isOnline.value = false;
+});
+</script>
+
+<style>
+.version-box {
+  padding-top: 20px;
+}
+.version-text {
+  font-weight: normal;
+  text-align: right;
+  width: 80px;
+}
+</style>

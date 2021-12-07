@@ -8,9 +8,10 @@
   "scripts": {
     "dev": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node' --project tsconfig.server.json ./src/index.ts",
     "dev:web": "vite --mode development --port=3200",
-    "build": "tsc -c tsconfig.server.json",
-    "prod": "tsc && node bin/index.js",
-    "build:web": "vite build --mode production"
+    "build": "tsc -p tsconfig.server.json",
+    "build:web": "vite build --mode production",
+    "prod": "tsc -p tsconfig.server.json && node bin/index.js",
+    "start": "node bin/index.js"
   },
   "repository": {
     "type": "git",

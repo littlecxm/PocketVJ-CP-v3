@@ -5,15 +5,21 @@
     >
       <table width="100%" height="100%" border="2" align="center">
         <tr>
-          <td id="actions_output" width="360" height="90px"></td>
+          <td id="actions_output" width="360" height="90px">{{ props.out }}</td>
         </tr>
-        <tr></tr>
       </table>
     </div>
   </section>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  out: {
+    type: String,
+    default: '',
+  },
+});
+</script>
 
 <style scoped>
 .output_window {
